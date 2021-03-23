@@ -3,6 +3,11 @@ const express = require('express')
 const app = express()
 app.use(express.json())
 
+
+app.get('/', (res, req) => {
+	res.send("api ...")
+})
+
 app.post('/webhook-simulate', (req, res) => {
 	let { event, data } = req.body
 	console.log("webhook-simulate", event, data)
