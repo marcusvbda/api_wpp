@@ -4,7 +4,7 @@ const router = express()
 router.use(express.json())
 
 router.post('/', (req, res) => {
-	if (req.body.secret != process.env.SECRET_KEY) res.sendStatus(403)
+	if (req.body.secret != process.env.SECRET_KEY) res.sendStatus(403) // fakeauth
 	let token = createToken({ secret: req.body.secret })
 	res.status(202).json({ token })
 })

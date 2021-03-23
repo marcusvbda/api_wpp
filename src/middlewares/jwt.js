@@ -10,7 +10,7 @@ verifyJWT = (req, res, next) => {
 	try {
 		jwt.verify(splited[1], process.env.SECRET_KEY, (er, decoded) => {
 			if (er) res.sendStatus(403)
-			if (decoded.secret != process.env.SECRET_KEY) res.sendStatus(403)
+			if (decoded.secret != process.env.SECRET_KEY) res.sendStatus(403) //fake auth check
 			req.user = decoded
 			next()
 		})
