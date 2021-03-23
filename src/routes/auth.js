@@ -4,14 +4,8 @@ const router = express()
 router.use(express.json())
 
 router.post('/', (req, res) => {
-	//valida usuarios 
-
-	//cria token
-	let user = {
-		key: req.body.key,
-		secret: req.body.secret
-	}
-	let token = createToken(user)
+	if (req.body.secret != process.env.SECRET_KEY) res.sendStatus(403)
+	let token = createToken({ secret: req.body.secret })
 	res.status(202).json({ token })
 })
 
