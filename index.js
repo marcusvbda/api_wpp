@@ -4,7 +4,7 @@ const app = express()
 app.use(express.json())
 
 
-app.get('/', (res, req) => {
+app.get('/', (req, res) => {
 	res.send("api ...")
 })
 
